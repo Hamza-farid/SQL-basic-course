@@ -1,0 +1,97 @@
+show databases;
+use mysql;
+show tables;
+
+create database sql_intro;
+show databases;
+use sql_intro;
+create table emp_details (Name varchar(25),Age int,sex char(1),
+doj date,city varchar(15), salary float);
+
+describe emp_details;
+
+insert into emp_details
+values("jimmy",35,"M","2002-03-29","chicago",70000),
+("joe",32,"M","2007-03-29","lhr",50000),
+("marry",35,"F","2002-03-29","chicago",20000);
+
+select * from emp_details;
+
+select distinct city from emp_details;
+
+
+select count(name) as count_name from emp_details;
+
+select sum(salary) from emp_details;
+
+select avg(salary) from emp_details;
+
+select name,age from emp_details;
+
+select * from emp_details where age >33;
+
+select name from emp_details where sex='F';
+
+select * from emp_details where 
+city = 'lhr' or city = 'Austin';
+
+select * from emp_details where 
+city in('Chicago','austin');
+
+select * from emp_details where 
+doj between '2001-01-01' and '2005-01-01';
+
+select * from emp_details where 
+age>30 and sex='f';
+
+
+select sex, sum(salary) as total_salary from emp_details
+group by sex;
+
+select * from emp_details order by salary desc;
+
+select(10+20) as addition;
+select length('pak') as total_len;
+select repeat('@',10);
+select upper('pak');
+select character_length('pak');
+
+select curdate();
+select day(curdate());
+select now();
+
+use mysql;
+
+create table students(stu_id int,stu_name varchar(15),age int, gender char(1),city varchar(11));
+select * from students;
+
+insert into students
+values(101,"Musa",20,"M","lhr"),
+(102,"ibrahim",22,"M","lhr"),
+(103,"ayesha",24,"F","isb");
+describe students;
+select * from students;
+
+#string functions
+
+select upper("pakistan") as upper_case;
+select lower("PAkistan") as lower_case;
+select lcase("PAkistan") as lower_case;
+
+select character_length('pakistan') as total_len;
+select stu_name, char_length(stu_name) as total_len
+from students;
+
+select concat('pakistan',' is ','in ','south asia');
+select stu_id,stu_name, concat(stu_name," ",age) as name_age
+from students;
+
+select reverse('ok');
+select replace('orange is a vegetable','vegetable','fruit');
+select length('   ksdn');
+select trim('    pak');
+select position('fruit' in 'orange is a fruit') as name;
+
+select ascii('a');
+
+
